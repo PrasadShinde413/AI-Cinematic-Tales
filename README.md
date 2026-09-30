@@ -18,6 +18,17 @@ The system is built as a highly modular, decoupled application featuring:
 - **Strict Cultural Isolation**: Cultural facts are dynamically fetched via ChromaDB embeddings. Thread state isolation prevents memory leakage between disparate adaptations.
 - **Dynamic UI Rendering**: No mocked state. The UI dynamically builds its visualization directly from the rich metadata dictionaries injected by the Python orchestration nodes.
 
+## Architecture: The 5-Node Agentic Pipeline
+
+The core architectural triumph of this platform is the `StudioState` LangGraph orchestrator. By modeling the creative pipeline as a strict deterministic state machine, we enforce robust continuity and guarantee human oversight.
+
+### ⭐ Star Points (Pipeline Flow)
+1. **Extraction Node**: The LLM processes the source document and extracts Canonical Entities. A deterministic python wrapper standardizes these entities into dictionaries containing `id`, `name`, `aliases`, and `role`. 
+2. **Deterministic Validation Node**: Rather than relying on the LLM to hallucinate state transitions, the system utilizes a deterministic `ContinuityValidator` Python class to track object possession across scenes and surface contradictions as warnings.
+3. **Cultural RAG Node & Planning**: The system bypasses generic LLM hallucinations by embedding curated cultural handbooks into a local **ChromaDB**. We execute semantic queries against the database to fetch highly specific cultural rules (Wardrobe, Kinship, Architecture) and inject them into the Adaptation Planning prompt.
+4. **Adaptation Node**: Using the human-approved Cultural Plan, the LLM rewrites the screenplay snippet.
+5. **Visual Prompt Node & Generation**: The LLM generates a visual prompt combining the approved Scene context with Canonical Character rules. The `ImageGenerationService` fires an HTTP POST request to a Stable Diffusion API to generate the asset.
+
 ## System Requirements
 
 - Python 3.10+
