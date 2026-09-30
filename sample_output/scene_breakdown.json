@@ -1,0 +1,11 @@
+{
+  "scene_id": "SC03",
+  "location_id": "LOC_HOME_COURTYARD",
+  "time": "early morning",
+  "characters": ["CHAR_AMAR", "CHAR_BEBE"],
+  "costume_ids": ["COST_AMAR_01", "COST_BEBE_01"],
+  "props_in": ["PROP_LETTER"],
+  "props_out": [],
+  "emotional_change": "Amar moves from avoidance to admission",
+  "continuity_warnings": []
+}

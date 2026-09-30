@@ -1,0 +1,30 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+build/
+.npm/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Databases & Data
+*.sqlite
+*.sqlite3
+chroma_data/
+checkpoints.sqlite
+
+# Misc
+.cache
+.vite

@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+chromadb
+langchain
+langgraph
+langsmith
+pypdf
+python-docx
+sentence-transformers
+ragas
+deepeval
+ollama
+pytest
+alembic
