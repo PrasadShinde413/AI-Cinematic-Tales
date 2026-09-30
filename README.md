@@ -65,3 +65,30 @@ npm run dev
 ```
 
 Navigate to `http://localhost:5173` to experience the Adaptation Studio.
+
+## Pipeline Flow Diagram
+
+```mermaid
+graph TD
+    %% Nodes
+    A([Start: Upload Screenplay]) --> B[Extraction Node]
+    B --> C[Deterministic Validation]
+    
+    C -->|Gate 1: HITL Extraction Review| D[Cultural RAG Node]
+    D --> E[Adaptation Planning Node]
+    
+    E -->|Gate 2: HITL Plan Review| F[Screenplay Adaptation Node]
+    F --> G[Visual Prompt Node]
+    
+    G -->|Gate 3: HITL Visual Review| H[Image Generation Node]
+    H --> I([End: Export Production Pack])
+
+    %% Styling
+    classDef gate fill:#f97316,stroke:#ea580c,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef node fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff;
+    classDef startend fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff;
+    
+    class A,I startend;
+    class B,C,D,E,F,G,H node;
+    linkStyle 2,4,6 stroke:#f97316,stroke-width:3px;
+```
